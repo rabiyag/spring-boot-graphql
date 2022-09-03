@@ -1,32 +1,85 @@
-# Spring Boot + GraphQL example
+# Spring Boot GraphQL
 
-For more detail, please visit:
-> [Spring Boot + GraphQL example](https://www.bezkoder.com/spring-boot-graphql-example/)
+This project showcases how to build a Spring Boot application with GraphQL, enabling powerful, flexible queries for accessing and manipulating data.
 
-> [Spring Boot + GraphQL + MySQL example](https://bezkoder.com/spring-boot-graphql-mysql-jpa/)
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
 
-> [Spring Boot + GraphQL + PostgreSQL example](https://www.bezkoder.com/spring-boot-graphql-postgresql/)
+## Features
+- GraphQL API: Define schemas and resolvers to support complex queries and mutations.
+- Spring Boot Integration: Simplifies setup and configuration for GraphQL with Spring Boot.
+- Schema-Driven Development: Define types, queries, and mutations in a single schema file.
+- Error Handling: Structured error responses for a smoother client experience.
+- Pagination and Filtering: Enables efficient data retrieval for large datasets.
 
-> [Spring Boot + GraphQL + MongoDB example](https://www.bezkoder.com/spring-boot-graphql-mongodb-example-graphql-java/)
+## Technologies Used
+- **Spring Boot** (backend framework)
+- **MySQL/PostgreSQL** (database)
+- **GraphQL Spring Boot Starter, Spring Data JPA** 
+- **Maven** (dependency management)
 
-## Run Spring Boot application
-```
-mvn spring-boot:run
-```
+## Prerequisites
+- **JDK 8** or higher
+- **Maven** for dependency management
+- **MySQL/PostgreSQL** database
 
-More Practice:
-> [Spring Boot and Swagger 3 example](https://www.bezkoder.com/spring-boot-swagger-3/)
+## Setup
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/rabiyag/spring-boot-graphql.git
+   cd spring-boot-graphql
+   ```
 
-> [Spring Boot Redis Cache example](https://www.bezkoder.com/spring-boot-redis-cache-example/)
+2. **Update application.properties with your database connection details:**:
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+    spring.datasource.username=your_db_username
+    spring.datasource.password=your_db_password
+    ```
+   
+3. **Build the project with Maven**:
+   ```bash
+   mvn clean install
+   ```
 
-> [Spring Boot File upload example](https://www.bezkoder.com/spring-boot-file-upload/)
+## Running the Application
+1. **Run the application**:
+   ```bash
+   mvn spring-boot:run
+   ```
 
-> [Exception handling: @RestControllerAdvice example in Spring Boot](https://www.bezkoder.com/spring-boot-restcontrolleradvice/)
+2. **Access the application**:
+   - The application will be available at http://localhost:8080:
+  
 
-> [Spring Boot Repository Unit Test with @DataJpaTest](https://www.bezkoder.com/spring-boot-unit-test-jpa-repo-datajpatest/)
+## Usage
 
-> [Spring Boot Rest Controller Unit Test with @WebMvcTest](https://www.bezkoder.com/spring-boot-webmvctest/)
+1. Define GraphQL Schema: Use .graphqls schema files to outline types, queries, and mutations.
 
-> [Spring Boot, Security & JWT Authentication example)](https://www.bezkoder.com/spring-boot-security-login-jwt/)
+2. Send Queries and Mutations: Use GraphQL clients (like GraphiQL, Insomnia, or Postman) to interact with the API.
 
-> [Spring Boot Rest XML example – Web service with XML Response](https://www.bezkoder.com/spring-boot-rest-xml/)
+**Sample Query**: 
+
+```graphql
+   query {
+  getAllItems {
+    id
+    name
+    description
+  }
+}
+   ```
+**Sample Mutation**
+
+   ```graphql
+mutation {
+  createItem(name: "New Item", description: "Item Description") {
+    id
+    name
+  }
+}   ```
